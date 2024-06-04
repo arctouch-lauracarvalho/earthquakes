@@ -13,3 +13,20 @@ protocol SeismicAPIClient: AnyObject {
     
     func fetchEarthquakesData() async throws -> [Earthquake]
 }
+
+enum SeismicAPIClientError: Error {
+    case invalidJSON
+    case server
+    case noInternet
+    
+    var localizedDescription: String {
+        switch self {
+        case .invalidJSON:
+            return "You got some invalid JSON"
+        case .server:
+            return "There is some problem to the server"
+        case .noInternet:
+            return "It seems you have not internet. Please check it out"
+        }
+    }
+}

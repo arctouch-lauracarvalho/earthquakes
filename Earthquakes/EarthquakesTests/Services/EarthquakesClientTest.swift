@@ -16,6 +16,7 @@ final class EarthquakesClientTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: - Instantiation Tests
     func testGivenClientCreated_ThenHostAndNetworkSessionIsSet() {
         let host = URL(string: "https://example.com/v1")!
         let networkSession: NetworkSession = URLSession.shared
@@ -26,25 +27,104 @@ final class EarthquakesClientTests: XCTestCase {
     }
     
     func testGivenEarthquakesClient_ThenItConformsToSeismicAPIClient() {
-        sut = setupClient()
+        sut = setupClient(networkSession: URLSession.shared)
         XCTAssertTrue((sut as AnyObject) is SeismicAPIClient)
     }
-    
-    func testGivenEarthquakesClient_WhenFetchingEarthquakesData_ThenResponseIsEmpty() async {
-        sut = setupClient()
+
+    // MARK: - Error Tests
+    func testGivenEarthquakesClient_WhenFetchingEarthquakesDataAndThereIsNoInternetConnection_ThenThrowNoInternetError() async {
+        var expectedError: SeismicAPIClientError = .invalidJSON
+        let networkSession = setupNetworkSession(error: URLError(.notConnectedToInternet))
+        
+        sut = setupClient(networkSession: networkSession)
+        
         do {
-            let responseList = try await sut.fetchEarthquakesData()
-            XCTAssertTrue(responseList.isEmpty)
+            _ = try await sut.fetchEarthquakesData()
         } catch {
-            XCTFail("🚫 an error is thrown \(error)")
+            expectedError = error as! SeismicAPIClientError
         }
+        
+        XCTAssertEqual(expectedError, SeismicAPIClientError.noInternet)
+    }
+    
+    func testGivenEarthquakesClient_WhenFetchingEarthquakesDataAndAnyErrorOccur_ThenThrowServerError() async {
+        var expectedError: SeismicAPIClientError = .invalidJSON
+        let networkSession = setupNetworkSession(error: URLError(.badURL))
+        
+        sut = setupClient(networkSession: networkSession)
+        
+        do {
+            _ = try await sut.fetchEarthquakesData()
+        } catch {
+            expectedError = error as! SeismicAPIClientError
+        }
+        
+        XCTAssertEqual(expectedError, SeismicAPIClientError.server)
+    }
+    
+    func testGivenEarthquakesClient_WhenFetchingEarthquakesDataAndResponseCodeIsOtherThan200_ThenThrowServerError() async {
+        var expectedError: SeismicAPIClientError = .invalidJSON
+        let mockResponse = responseFor(url: "https://example.com/v1", statusCode: 500)
+        let networkSession = setupNetworkSession(response: mockResponse)
+        
+        sut = setupClient(networkSession: networkSession)
+        
+        do {
+            _ = try await sut.fetchEarthquakesData()
+        } catch {
+            expectedError = error as! SeismicAPIClientError
+        }
+        
+        XCTAssertEqual(expectedError, SeismicAPIClientError.server)
+    }
+    
+    func testGivenEarthquakesClient_WhenFetchingEarthquakesDataAndJSONIsInvalid_ThenThrowInvalidJSONError() async {
+        var expectedError: SeismicAPIClientError = .noInternet
+        let mockData = """
+            {
+                "properties": {
+                    "title": "Some title",
+                    "time": 1701953790184,
+                },
+                "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            169.3089,
+                            -20.6152,
+                            48
+                        ]
+                    }
+            }
+        """
+        let mockResponse = responseFor(url: "https://example.com/v1", statusCode: 200)
+        let networkSession = setupNetworkSession(using: mockData, response: mockResponse)
+        
+        sut = setupClient(networkSession: networkSession)
+        
+        do {
+            _ = try await sut.fetchEarthquakesData()
+        } catch {
+            expectedError = error as! SeismicAPIClientError
+        }
+        
+        XCTAssertEqual(expectedError, SeismicAPIClientError.invalidJSON)
     }
 }
 
+// MARK: - Helper Methods
 private extension EarthquakesClientTests {
     func setupClient(hostValue: String = "https://example.com/v1",
-                     networkSession: NetworkSession = MockNetworkSession()) -> EarthquakesClient {
+                     networkSession: NetworkSession) -> EarthquakesClient {
         let host = URL(string: hostValue)!
         return EarthquakesClient(host: host, networkSession: networkSession)
+    }
+    
+    func setupNetworkSession(using data: String = "{}", response: URLResponse? = nil, error: Error? = nil) -> MockNetworkSession {
+        return MockNetworkSession(mockDataString: data, mockResponse: response, errorToThrow: error)
+    }
+    
+    func responseFor(url: String, statusCode: Int = 200) -> HTTPURLResponse? {
+        let finalURL = URL(string: url)!
+        return HTTPURLResponse(url: finalURL, statusCode: statusCode, httpVersion: nil, headerFields: nil)
     }
 }

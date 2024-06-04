@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct EarthquakeResponse: Decodable {
+    let features: [Earthquake]
+}
+
 struct Earthquake: Decodable {
     let title: String
     let magnitude: Double

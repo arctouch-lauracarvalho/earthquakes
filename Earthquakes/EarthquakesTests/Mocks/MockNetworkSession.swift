@@ -9,9 +9,30 @@ import Foundation
 @testable import Earthquakes
 
 final class MockNetworkSession: NetworkSession {
+    private let jsonDataAsString: String
+    private let mockResponse: URLResponse?
+    private let errorToThrow: Error?
+    
+    init(mockDataString: String, mockResponse: URLResponse?, errorToThrow: Error?) {
+        jsonDataAsString = mockDataString
+        self.mockResponse = mockResponse
+        self.errorToThrow = errorToThrow
+    }
+    
     func fetchData(from url: URL) async throws -> (Data, URLResponse) {
-        let mockData = "{}".data(using: .utf8)!
-        let mockResonse = URLResponse()
-        return (mockData, mockResonse)
+        if let error = errorToThrow {
+            throw error
+        }
+        
+        let mockData = jsonDataAsString.data(using: .utf8)!
+        
+        var response: URLResponse
+        if let responseToMock = mockResponse {
+            response = responseToMock
+        } else {
+            response = URLResponse()
+        }
+        
+        return (mockData, response)
     }
 }
