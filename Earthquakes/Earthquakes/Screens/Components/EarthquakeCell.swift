@@ -44,5 +44,8 @@ private extension EarthquakeCell {
 }
 
 #Preview {
-    EarthquakeCell(data: Earthquake())
+    Group {
+        EarthquakeCell(data: PreviewHelper.smallEarthquake)
+        EarthquakeCell(data: PreviewHelper.bigEarthquake)
+    }
 }
