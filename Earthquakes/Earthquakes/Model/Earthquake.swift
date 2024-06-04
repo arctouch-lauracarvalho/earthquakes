@@ -42,6 +42,12 @@ struct Earthquake: Decodable {
 
 extension Earthquake: Equatable {}
 
+extension Earthquake: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(time)
+    }
+}
+
 extension Earthquake {
     private init() {
         title = ""
