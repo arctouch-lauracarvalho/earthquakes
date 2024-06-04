@@ -30,6 +30,25 @@ final class EarthquakesClientTests: XCTestCase {
         sut = setupClient(networkSession: URLSession.shared)
         XCTAssertTrue((sut as AnyObject) is SeismicAPIClient)
     }
+    
+    // MARK: - Success Tests
+    func testGivenEarthquakesClient_WhenFetchingEarthquakesDataAndItSucceeds_ThenEarthquakeListHas2EarthquakeData() async {
+        let mockResponse = responseFor(url: "https://example.com/v1")
+        let mockData = try! Data.fromJSON(fileName: "EarthquakeListData")
+        let networkSession = setupNetworkSession(using: mockData, response: mockResponse)
+        
+        sut = setupClient(networkSession: networkSession)
+        
+        var list: [Earthquake] = []
+        
+        do {
+            list = try await sut.fetchEarthquakesData()
+        } catch {
+            XCTFail("Error is not expected in this scenario")
+        }
+        
+        XCTAssertEqual(list.count, 2)
+    }
 
     // MARK: - Error Tests
     func testGivenEarthquakesClient_WhenFetchingEarthquakesDataAndThereIsNoInternetConnection_ThenThrowNoInternetError() async {
