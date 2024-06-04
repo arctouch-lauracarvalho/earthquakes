@@ -8,9 +8,14 @@
 import XCTest
 @testable import Earthquakes
 
-final class EarthquakesTests: XCTestCase {
+final class EarthquakeTests: XCTestCase {
 
     override func setUpWithError() throws {}
 
     override func tearDownWithError() throws {}
+    
+    func testEarthquakeInit() {
+        let sut = Earthquake()
+        XCTAssertNotNil(sut)
+    }
 }
