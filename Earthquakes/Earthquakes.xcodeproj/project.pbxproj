@@ -19,6 +19,7 @@
 		05A0B1302C0FC695005C134F /* EarthquakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B12F2C0FC695005C134F /* EarthquakeCell.swift */; };
 		05A0B1332C0FC87A005C134F /* DataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1322C0FC87A005C134F /* DataInfo.swift */; };
 		05A0B1352C0FCE45005C134F /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1342C0FCE45005C134F /* PreviewHelper.swift */; };
+		05A0B1372C0FD5FD005C134F /* MockSeismicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1362C0FD5FD005C134F /* MockSeismicAPIClient.swift */; };
 		05A4B7E92C0F33DA00AB17F7 /* EarthquakesClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */; };
 		05A4B7ED2C0F343B00AB17F7 /* EarthquakesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */; };
 		05A4B7F12C0F3CEB00AB17F7 /* SeismicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */; };
@@ -55,6 +56,7 @@
 		05A0B12F2C0FC695005C134F /* EarthquakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCell.swift; sourceTree = "<group>"; };
 		05A0B1322C0FC87A005C134F /* DataInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInfo.swift; sourceTree = "<group>"; };
 		05A0B1342C0FCE45005C134F /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
+		05A0B1362C0FD5FD005C134F /* MockSeismicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSeismicAPIClient.swift; sourceTree = "<group>"; };
 		05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClientTest.swift; sourceTree = "<group>"; };
 		05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClient.swift; sourceTree = "<group>"; };
 		05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeismicAPIClient.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				05A4B7F52C0F4A8C00AB17F7 /* MockNetworkSession.swift */,
+				05A0B1362C0FD5FD005C134F /* MockSeismicAPIClient.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A4B7E92C0F33DA00AB17F7 /* EarthquakesClientTest.swift in Sources */,
+				05A0B1372C0FD5FD005C134F /* MockSeismicAPIClient.swift in Sources */,
 				05A4B7F62C0F4A8C00AB17F7 /* MockNetworkSession.swift in Sources */,
 				05A0B1272C0FC2A7005C134F /* EarthquakeListViewModelTests.swift in Sources */,
 				052D72E52C0E99650047A1FB /* EarthquakeTests.swift in Sources */,
