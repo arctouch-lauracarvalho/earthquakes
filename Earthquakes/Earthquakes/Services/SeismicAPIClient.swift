@@ -9,5 +9,7 @@ import Foundation
 
 protocol SeismicAPIClient: AnyObject {
     var host: URL { get }
-    var networkSession: URLSession { get }
+    var networkSession: NetworkSession { get }
+    
+    func fetchEarthquakesData() async throws -> [Earthquake]
 }

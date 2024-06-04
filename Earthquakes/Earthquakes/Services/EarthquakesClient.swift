@@ -9,10 +9,14 @@ import Foundation
 
 final class EarthquakesClient: SeismicAPIClient {
     let host: URL
-    let networkSession: URLSession
+    let networkSession: NetworkSession
     
-    init(host: URL, networkSession: URLSession) {
+    init(host: URL, networkSession: NetworkSession) {
         self.host = host
         self.networkSession = networkSession
+    }
+    
+    func fetchEarthquakesData() async throws -> [Earthquake] {
+        return []
     }
 }
