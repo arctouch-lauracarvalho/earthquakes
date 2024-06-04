@@ -16,6 +16,7 @@
 		052D73012C0EA4EB0047A1FB /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D73002C0EA4EB0047A1FB /* Coordinates.swift */; };
 		05A4B7E92C0F33DA00AB17F7 /* EarthquakesClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */; };
 		05A4B7ED2C0F343B00AB17F7 /* EarthquakesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */; };
+		05A4B7F12C0F3CEB00AB17F7 /* SeismicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		052D73002C0EA4EB0047A1FB /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClientTest.swift; sourceTree = "<group>"; };
 		05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClient.swift; sourceTree = "<group>"; };
+		05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeismicAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */,
+				05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				052D72D62C0E99620047A1FB /* ContentView.swift in Sources */,
+				05A4B7F12C0F3CEB00AB17F7 /* SeismicAPIClient.swift in Sources */,
 				05A4B7ED2C0F343B00AB17F7 /* EarthquakesClient.swift in Sources */,
 				052D72FF2C0E9F040047A1FB /* Earthquake.swift in Sources */,
 				052D72D42C0E99620047A1FB /* EarthquakesApp.swift in Sources */,

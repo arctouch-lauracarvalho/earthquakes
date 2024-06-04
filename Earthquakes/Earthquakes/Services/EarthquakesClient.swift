@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class EarthquakesClient {
+final class EarthquakesClient: SeismicAPIClient {
     let host: URL
     let networkSession: URLSession
     
