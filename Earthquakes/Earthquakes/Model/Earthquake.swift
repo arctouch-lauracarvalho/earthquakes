@@ -40,6 +40,8 @@ struct Earthquake: Decodable {
     }
 }
 
+extension Earthquake: Equatable {}
+
 extension Earthquake {
     private init() {
         title = ""

@@ -9,8 +9,10 @@ import Foundation
 @testable import Earthquakes
 
 final class MockSeismicAPIClient: SeismicAPIClient {
-    var host: URL
-    var networkSession: NetworkSession
+    let host: URL
+    let networkSession: NetworkSession
+    
+    var mockResponse: [Earthquake]?
     
     init(host: URL = URL(string: "https://example.com")!,
          networkSession: NetworkSession = MockNetworkSession(mockData: "{}".data(using: .utf8)!, mockResponse: nil, errorToThrow: nil)) {
@@ -19,6 +21,12 @@ final class MockSeismicAPIClient: SeismicAPIClient {
     }
     
     func fetchEarthquakesData() async throws -> [Earthquakes.Earthquake] {
-        return []
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        
+        if let mock = mockResponse {
+            return mock
+        } else {
+            return []
+        }
     }
 }
