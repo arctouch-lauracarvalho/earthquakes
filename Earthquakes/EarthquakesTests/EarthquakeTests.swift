@@ -18,8 +18,8 @@ final class EarthquakeTests: XCTestCase {
     
     func testEarthquakeInitFromValidJSON() {
         let decoder = JSONDecoder()
-        
-        sut = try! decoder.decode(Earthquake.self, from: validJSONData)
+        let data = try! Data.fromJSON(fileName: "EarthquakeValidData")
+        sut = try! decoder.decode(Earthquake.self, from: data)
         
         XCTAssertEqual(sut.title, "Some title")
         XCTAssertEqual(sut.magnitude, 1.0)
@@ -29,47 +29,7 @@ final class EarthquakeTests: XCTestCase {
     
     func testEartquakeInitFromInvalidJSON() {
         let decoder = JSONDecoder()
-        XCTAssertThrowsError(try decoder.decode(Earthquake.self, from: jsonDataMissingMagnitude))
-    }
-}
-
-private extension EarthquakeTests {
-    var validJSONData: Data {
-        """
-            {
-                "properties": {
-                    "title": "Some title",
-                    "mag": 1.0,
-                    "time": 1701953790184,
-                },
-                "geometry": {
-                        "type": "Point",
-                        "coordinates": [
-                            169.3089,
-                            -20.6152,
-                            48
-                        ]
-                    }
-            }
-        """.data(using: .utf8)!
-    }
-    
-    var jsonDataMissingMagnitude: Data {
-        """
-            {
-                "properties": {
-                    "title": "Some title",
-                    "time": 1701953790184,
-                },
-                "geometry": {
-                        "type": "Point",
-                        "coordinates": [
-                            169.3089,
-                            -20.6152,
-                            48
-                        ]
-                    }
-            }
-        """.data(using: .utf8)!
+        let data = try! Data.fromJSON(fileName: "InvalidEarthquakeData")
+        XCTAssertThrowsError(try decoder.decode(Earthquake.self, from: data))
     }
 }

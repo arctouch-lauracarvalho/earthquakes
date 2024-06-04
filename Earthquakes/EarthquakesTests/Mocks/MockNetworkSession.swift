@@ -9,12 +9,12 @@ import Foundation
 @testable import Earthquakes
 
 final class MockNetworkSession: NetworkSession {
-    private let jsonDataAsString: String
+    private let jsonData: Data
     private let mockResponse: URLResponse?
     private let errorToThrow: Error?
     
-    init(mockDataString: String, mockResponse: URLResponse?, errorToThrow: Error?) {
-        jsonDataAsString = mockDataString
+    init(mockData: Data, mockResponse: URLResponse?, errorToThrow: Error?) {
+        jsonData = mockData
         self.mockResponse = mockResponse
         self.errorToThrow = errorToThrow
     }
@@ -24,8 +24,6 @@ final class MockNetworkSession: NetworkSession {
             throw error
         }
         
-        let mockData = jsonDataAsString.data(using: .utf8)!
-        
         var response: URLResponse
         if let responseToMock = mockResponse {
             response = responseToMock
@@ -33,6 +31,6 @@ final class MockNetworkSession: NetworkSession {
             response = URLResponse()
         }
         
-        return (mockData, response)
+        return (jsonData, response)
     }
 }

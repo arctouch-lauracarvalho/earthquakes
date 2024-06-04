@@ -19,6 +19,10 @@
 		05A4B7F12C0F3CEB00AB17F7 /* SeismicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */; };
 		05A4B7F32C0F49ED00AB17F7 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7F22C0F49ED00AB17F7 /* NetworkSession.swift */; };
 		05A4B7F62C0F4A8C00AB17F7 /* MockNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7F52C0F4A8C00AB17F7 /* MockNetworkSession.swift */; };
+		05A4B7FB2C0F628500AB17F7 /* EarthquakeValidData.json in Resources */ = {isa = PBXBuildFile; fileRef = 05A4B7F82C0F628500AB17F7 /* EarthquakeValidData.json */; };
+		05A4B7FC2C0F628500AB17F7 /* EarthquakeListData.json in Resources */ = {isa = PBXBuildFile; fileRef = 05A4B7F92C0F628500AB17F7 /* EarthquakeListData.json */; };
+		05A4B7FD2C0F628500AB17F7 /* InvalidEarthquakeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 05A4B7FA2C0F628500AB17F7 /* InvalidEarthquakeData.json */; };
+		05A4B8002C0F62A200AB17F7 /* Data+FromFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7FF2C0F62A200AB17F7 /* Data+FromFiles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeismicAPIClient.swift; sourceTree = "<group>"; };
 		05A4B7F22C0F49ED00AB17F7 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		05A4B7F52C0F4A8C00AB17F7 /* MockNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkSession.swift; sourceTree = "<group>"; };
+		05A4B7F82C0F628500AB17F7 /* EarthquakeValidData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EarthquakeValidData.json; path = ../../../../../Desktop/EarthquakeValidData.json; sourceTree = "<group>"; };
+		05A4B7F92C0F628500AB17F7 /* EarthquakeListData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EarthquakeListData.json; path = ../../../../../Desktop/EarthquakeListData.json; sourceTree = "<group>"; };
+		05A4B7FA2C0F628500AB17F7 /* InvalidEarthquakeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = InvalidEarthquakeData.json; path = ../../../../../Desktop/InvalidEarthquakeData.json; sourceTree = "<group>"; };
+		05A4B7FF2C0F62A200AB17F7 /* Data+FromFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+FromFiles.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,8 @@
 		052D72E32C0E99650047A1FB /* EarthquakesTests */ = {
 			isa = PBXGroup;
 			children = (
+				05A4B7FE2C0F629100AB17F7 /* Extensions */,
+				05A4B7F72C0F60B600AB17F7 /* Data */,
 				05A4B7F42C0F4A7500AB17F7 /* Mocks */,
 				05A4B7E72C0F33B900AB17F7 /* Services */,
 				052D72E42C0E99650047A1FB /* EarthquakeTests.swift */,
@@ -148,6 +158,24 @@
 				05A4B7F52C0F4A8C00AB17F7 /* MockNetworkSession.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		05A4B7F72C0F60B600AB17F7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				05A4B7F92C0F628500AB17F7 /* EarthquakeListData.json */,
+				05A4B7F82C0F628500AB17F7 /* EarthquakeValidData.json */,
+				05A4B7FA2C0F628500AB17F7 /* InvalidEarthquakeData.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		05A4B7FE2C0F629100AB17F7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				05A4B7FF2C0F62A200AB17F7 /* Data+FromFiles.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +268,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A4B7FC2C0F628500AB17F7 /* EarthquakeListData.json in Resources */,
+				05A4B7FD2C0F628500AB17F7 /* InvalidEarthquakeData.json in Resources */,
+				05A4B7FB2C0F628500AB17F7 /* EarthquakeValidData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +298,7 @@
 				05A4B7E92C0F33DA00AB17F7 /* EarthquakesClientTest.swift in Sources */,
 				05A4B7F62C0F4A8C00AB17F7 /* MockNetworkSession.swift in Sources */,
 				052D72E52C0E99650047A1FB /* EarthquakeTests.swift in Sources */,
+				05A4B8002C0F62A200AB17F7 /* Data+FromFiles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

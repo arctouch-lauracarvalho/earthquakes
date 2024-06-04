@@ -80,22 +80,7 @@ final class EarthquakesClientTests: XCTestCase {
     
     func testGivenEarthquakesClient_WhenFetchingEarthquakesDataAndJSONIsInvalid_ThenThrowInvalidJSONError() async {
         var expectedError: SeismicAPIClientError = .noInternet
-        let mockData = """
-            {
-                "properties": {
-                    "title": "Some title",
-                    "time": 1701953790184,
-                },
-                "geometry": {
-                        "type": "Point",
-                        "coordinates": [
-                            169.3089,
-                            -20.6152,
-                            48
-                        ]
-                    }
-            }
-        """
+        let mockData = try! Data.fromJSON(fileName: "InvalidEarthquakeData")
         let mockResponse = responseFor(url: "https://example.com/v1", statusCode: 200)
         let networkSession = setupNetworkSession(using: mockData, response: mockResponse)
         
@@ -119,8 +104,10 @@ private extension EarthquakesClientTests {
         return EarthquakesClient(host: host, networkSession: networkSession)
     }
     
-    func setupNetworkSession(using data: String = "{}", response: URLResponse? = nil, error: Error? = nil) -> MockNetworkSession {
-        return MockNetworkSession(mockDataString: data, mockResponse: response, errorToThrow: error)
+    func setupNetworkSession(using data: Data = "{}".data(using: .utf8)!,
+                             response: URLResponse? = nil,
+                             error: Error? = nil) -> MockNetworkSession {
+        return MockNetworkSession(mockData: data, mockResponse: response, errorToThrow: error)
     }
     
     func responseFor(url: String, statusCode: Int = 200) -> HTTPURLResponse? {
