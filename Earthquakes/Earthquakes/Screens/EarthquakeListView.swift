@@ -11,6 +11,8 @@ struct EarthquakeListView: View {
     @StateObject private var viewModel = EarthquakeListViewModel(earthquakeClient: EarthquakesClient(host: URL(string: "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-01-01&endtime=2024-01-01&minmagnitude=7")!,
                                                                                                      networkSession: URLSession.shared))
     
+    @State private var path: [Earthquake] = []
+    
     var body: some View {
         ZStack {
             earthquakeList
@@ -49,15 +51,23 @@ struct EarthquakeListView: View {
             Text("No earthquake data")
                 .font(.title)
         } else {
-            List() {
-                ForEach(viewModel.earthquakes, id: \.self) { earthquake in
-                    let cellViewModel = EarthquakeCellViewModel(earthquake: earthquake)
-                    EarthquakeCell(viewModel: cellViewModel)
+            NavigationStack {
+                List() {
+                    ForEach(viewModel.earthquakes, id: \.self) { earthquake in
+                        NavigationLink(value: earthquake) {
+                            let cellViewModel = EarthquakeCellViewModel(earthquake: earthquake)
+                            EarthquakeCell(viewModel: cellViewModel)
+                        }
+                    }
+                }
+                .listStyle(.plain)
+                .clipped()
+                .edgesIgnoringSafeArea(.bottom)
+                .navigationTitle("Earthquake List")
+                .navigationDestination(for: Earthquake.self) { earthquake in
+                    Text("\(earthquake.title)")
                 }
             }
-            .listStyle(.plain)
-            .clipped()
-            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }
