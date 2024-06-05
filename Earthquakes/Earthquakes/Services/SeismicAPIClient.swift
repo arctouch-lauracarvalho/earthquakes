@@ -26,7 +26,7 @@ enum SeismicAPIClientError: Error {
         case .server:
             return "There is some problem to the server"
         case .noInternet:
-            return "It seems you have not internet. Please check it out"
+            return "It seems you don't have internet connection. Please check it out"
         }
     }
 }
