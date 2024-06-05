@@ -20,6 +20,8 @@
 		05A0B1332C0FC87A005C134F /* DataInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1322C0FC87A005C134F /* DataInfo.swift */; };
 		05A0B1352C0FCE45005C134F /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1342C0FCE45005C134F /* PreviewHelper.swift */; };
 		05A0B1372C0FD5FD005C134F /* MockSeismicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1362C0FD5FD005C134F /* MockSeismicAPIClient.swift */; };
+		05A0B1392C0FE62F005C134F /* EarthquakeCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1382C0FE62F005C134F /* EarthquakeCellViewModelTests.swift */; };
+		05A0B13B2C0FE654005C134F /* EarthquakeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B13A2C0FE654005C134F /* EarthquakeCellViewModel.swift */; };
 		05A4B7E92C0F33DA00AB17F7 /* EarthquakesClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */; };
 		05A4B7ED2C0F343B00AB17F7 /* EarthquakesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */; };
 		05A4B7F12C0F3CEB00AB17F7 /* SeismicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */; };
@@ -57,6 +59,8 @@
 		05A0B1322C0FC87A005C134F /* DataInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInfo.swift; sourceTree = "<group>"; };
 		05A0B1342C0FCE45005C134F /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		05A0B1362C0FD5FD005C134F /* MockSeismicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSeismicAPIClient.swift; sourceTree = "<group>"; };
+		05A0B1382C0FE62F005C134F /* EarthquakeCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCellViewModelTests.swift; sourceTree = "<group>"; };
+		05A0B13A2C0FE654005C134F /* EarthquakeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCellViewModel.swift; sourceTree = "<group>"; };
 		05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClientTest.swift; sourceTree = "<group>"; };
 		05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClient.swift; sourceTree = "<group>"; };
 		05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeismicAPIClient.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				05A0B1262C0FC2A7005C134F /* EarthquakeListViewModelTests.swift */,
+				05A0B1382C0FE62F005C134F /* EarthquakeCellViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				05A0B1292C0FC342005C134F /* EarthquakeListViewModel.swift */,
+				05A0B13A2C0FE654005C134F /* EarthquakeCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				05A4B7F32C0F49ED00AB17F7 /* NetworkSession.swift in Sources */,
 				05A0B1352C0FCE45005C134F /* PreviewHelper.swift in Sources */,
 				05A4B7F12C0F3CEB00AB17F7 /* SeismicAPIClient.swift in Sources */,
+				05A0B13B2C0FE654005C134F /* EarthquakeCellViewModel.swift in Sources */,
 				05A0B12A2C0FC342005C134F /* EarthquakeListViewModel.swift in Sources */,
 				05A0B12E2C0FC3EC005C134F /* EarthquakeListView.swift in Sources */,
 				05A4B7ED2C0F343B00AB17F7 /* EarthquakesClient.swift in Sources */,
@@ -363,6 +370,7 @@
 				05A0B1272C0FC2A7005C134F /* EarthquakeListViewModelTests.swift in Sources */,
 				052D72E52C0E99650047A1FB /* EarthquakeTests.swift in Sources */,
 				05A4B8002C0F62A200AB17F7 /* Data+FromFiles.swift in Sources */,
+				05A0B1392C0FE62F005C134F /* EarthquakeCellViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -88,6 +88,7 @@ final class EarthquakeListViewModelTests: XCTestCase {
     }
 }
 
+// MARK: - Helper Methods
 private extension EarthquakeListViewModelTests {
     func setupEarthquakeMockData() -> [Earthquake] {
         let mockData = try! Data.fromJSON(fileName: "EarthquakeListData")
