@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct EarthquakeListView: View {
-    @StateObject private var viewModel = EarthquakeListViewModel(earthquakeClient: EarthquakesClient(host: URL(string: "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-01-01&endtime=2024-01-01&minmagnitude=7")!,
-                                                                                                     networkSession: URLSession.shared))
-    
+    @StateObject private var viewModel = EarthquakeListViewModel()
     @State private var path: [Earthquake] = []
     
     var body: some View {

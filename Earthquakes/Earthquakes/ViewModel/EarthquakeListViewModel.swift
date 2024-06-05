@@ -16,6 +16,18 @@ final class EarthquakeListViewModel: ObservableObject {
     
     private(set) var apiError: SeismicAPIClientError?
     
+    private static var host: URL {
+        guard let url = URL(string: "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-01-01&endtime=2024-01-01&minmagnitude=7") else {
+            fatalError("Invalid host URL")
+        }
+        return url
+    }
+    
+    convenience init() {
+        let client = EarthquakesClient(host: Self.host, networkSession: URLSession.shared)
+        self.init(earthquakeClient: client)
+    }
+    
     init(earthquakeClient: SeismicAPIClient) {
         self.earthquakeClient = earthquakeClient
     }
