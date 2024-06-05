@@ -55,14 +55,14 @@ final class EarthquakeCellViewModelTests: XCTestCase {
         let expectedEarthquake = mockEarthquakeData(withMagnitute: 7.5)
         
         sut = EarthquakeCellViewModel(earthquake: expectedEarthquake)
-        XCTAssertFalse(sut.shouldBeDistinguish)
+        XCTAssertTrue(sut.shouldBeDistinguish)
     }
     
     func testGivenEarthquakeWithMagnitude7_6_WhenInstantiateViewModel_ThenShouldBeDistinguishIsTrue() {
         let expectedEarthquake = mockEarthquakeData(withMagnitute: 7.6)
         
         sut = EarthquakeCellViewModel(earthquake: expectedEarthquake)
-        XCTAssertFalse(sut.shouldBeDistinguish)
+        XCTAssertTrue(sut.shouldBeDistinguish)
     }
 }
 

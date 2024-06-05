@@ -24,7 +24,7 @@ final class EarthquakeTests: XCTestCase {
         XCTAssertEqual(sut.title, "Some title")
         XCTAssertEqual(sut.magnitude, 1.0)
         XCTAssertEqual(sut.time, 1701953790184)
-        XCTAssertEqual(sut.coordinates, Coordinates(latitude: 169.3089, longitude: -20.6152, depth: 48))
+        XCTAssertEqual(sut.coordinates, Coordinates(latitude: -20.6152, longitude: 169.3089, depth: 48))
     }
     
     func testEartquakeInitFromInvalidJSON() {
