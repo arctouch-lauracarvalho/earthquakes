@@ -1,0 +1,14 @@
+{
+    "properties": {
+        "title": "Some title",
+        "time": 1701953790184,
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            169.3089,
+            -20.6152,
+            48
+        ]
+    }
+}

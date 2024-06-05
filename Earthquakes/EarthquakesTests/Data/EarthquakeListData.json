@@ -1,0 +1,94 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": 1709777377000,
+    "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-01-01&endtime=2024-01-01&minmagnitude=7",
+    "title": "USGS Earthquakes",
+    "status": 200,
+    "api": "1.14.0",
+    "count": 19
+  },
+  "features": [
+    {
+      ";": "",
+      "type": "Feature",
+      "properties": {
+        "mag": 7.1,
+        "place": "118 km S of Isangel, Vanuatu",
+        "time": 1701953790184,
+        "updated": 1707608860040,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000lgwp",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000lgwp&format=geojson",
+        "felt": 17,
+        "cdi": 7.2,
+        "mmi": 5.906,
+        "alert": "green",
+        "status": "reviewed",
+        "tsunami": 1,
+        "sig": 788,
+        "net": "us",
+        "code": "7000lgwp",
+        "ids": ",at00s5ary7,us7000lgwp,pt23341051,usauto7000lgwp,",
+        "sources": ",at,us,pt,usauto,",
+        "types": ",dyfi,finite-fault,general-text,ground-failure,impact-link,impact-text,internal-moment-tensor,internal-origin,losspager,moment-tensor,origin,phase-data,shakemap,",
+        "nst": 146,
+        "dmin": 2.637,
+        "rms": 1.08,
+        "gap": 20,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 7.1 - 118 km S of Isangel, Vanuatu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.3089,
+          -20.6152,
+          48
+        ]
+      },
+      "id": "us7000lgwp"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 7.6,
+        "place": "19 km E of Gamut, Philippines",
+        "time": 1701527824454,
+        "updated": 1709731934801,
+        "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000lff4",
+        "detail": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000lff4&format=geojson",
+        "felt": 368,
+        "cdi": 9.1,
+        "mmi": 7.184,
+        "alert": "yellow",
+        "status": "reviewed",
+        "tsunami": 1,
+        "sig": 1223,
+        "net": "us",
+        "code": "7000lff4",
+        "ids": ",pt23336002,at00s51n9y,us7000lff4,usauto7000lff4,",
+        "sources": ",pt,at,us,usauto,",
+        "types": ",dyfi,finite-fault,general-text,ground-failure,impact-link,impact-text,internal-moment-tensor,internal-origin,losspager,moment-tensor,origin,phase-data,shakemap,",
+        "nst": 128,
+        "dmin": 1.668,
+        "rms": 0.98,
+        "gap": 43,
+        "magType": "mww",
+        "type": "earthquake",
+        "title": "M 7.6 - 19 km E of Gamut, Philippines"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.4161,
+          8.5266,
+          40
+        ]
+      },
+      "id": "us7000lff4"
+    }
+  ]
+}
