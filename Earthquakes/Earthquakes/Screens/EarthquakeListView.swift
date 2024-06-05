@@ -65,7 +65,8 @@ struct EarthquakeListView: View {
                 .edgesIgnoringSafeArea(.bottom)
                 .navigationTitle("Earthquake List")
                 .navigationDestination(for: Earthquake.self) { earthquake in
-                    EarthquakeMapDetail()
+                    let mapViewModel = EarthquakeMapViewModel(coordinates: earthquake.coordinates)
+                    EarthquakeMapDetail(viewModel: mapViewModel)
                 }
             }
         }

@@ -33,7 +33,7 @@ struct Earthquake: Decodable {
         let geometryHasExpectedAmountOfData = geometryData.count == 3
         
         if geometryHasExpectedAmountOfData {
-            self.coordinates = Coordinates(latitude: geometryData[0], longitude: geometryData[1], depth: geometryData[2])
+            self.coordinates = Coordinates(latitude: geometryData[1], longitude: geometryData[0], depth: geometryData[2])
         } else {
             self.coordinates = Coordinates.empty()
         }

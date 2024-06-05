@@ -23,6 +23,7 @@
 		05A0B1392C0FE62F005C134F /* EarthquakeCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B1382C0FE62F005C134F /* EarthquakeCellViewModelTests.swift */; };
 		05A0B13B2C0FE654005C134F /* EarthquakeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B13A2C0FE654005C134F /* EarthquakeCellViewModel.swift */; };
 		05A0B13D2C0FF107005C134F /* EarthquakeMapDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B13C2C0FF107005C134F /* EarthquakeMapDetail.swift */; };
+		05A0B13F2C0FF598005C134F /* EarthquakeMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0B13E2C0FF598005C134F /* EarthquakeMapViewModel.swift */; };
 		05A4B7E92C0F33DA00AB17F7 /* EarthquakesClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */; };
 		05A4B7ED2C0F343B00AB17F7 /* EarthquakesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */; };
 		05A4B7F12C0F3CEB00AB17F7 /* SeismicAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */; };
@@ -63,6 +64,7 @@
 		05A0B1382C0FE62F005C134F /* EarthquakeCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCellViewModelTests.swift; sourceTree = "<group>"; };
 		05A0B13A2C0FE654005C134F /* EarthquakeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeCellViewModel.swift; sourceTree = "<group>"; };
 		05A0B13C2C0FF107005C134F /* EarthquakeMapDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeMapDetail.swift; sourceTree = "<group>"; };
+		05A0B13E2C0FF598005C134F /* EarthquakeMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeMapViewModel.swift; sourceTree = "<group>"; };
 		05A4B7E82C0F33DA00AB17F7 /* EarthquakesClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClientTest.swift; sourceTree = "<group>"; };
 		05A4B7EC2C0F343B00AB17F7 /* EarthquakesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakesClient.swift; sourceTree = "<group>"; };
 		05A4B7F02C0F3CEB00AB17F7 /* SeismicAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeismicAPIClient.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				05A0B1292C0FC342005C134F /* EarthquakeListViewModel.swift */,
 				05A0B13A2C0FE654005C134F /* EarthquakeCellViewModel.swift */,
+				05A0B13E2C0FF598005C134F /* EarthquakeMapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				05A4B7ED2C0F343B00AB17F7 /* EarthquakesClient.swift in Sources */,
 				052D72FF2C0E9F040047A1FB /* Earthquake.swift in Sources */,
 				052D72D42C0E99620047A1FB /* EarthquakesApp.swift in Sources */,
+				05A0B13F2C0FF598005C134F /* EarthquakeMapViewModel.swift in Sources */,
 				052D73012C0EA4EB0047A1FB /* Coordinates.swift in Sources */,
 				05A0B1302C0FC695005C134F /* EarthquakeCell.swift in Sources */,
 				05A0B1332C0FC87A005C134F /* DataInfo.swift in Sources */,

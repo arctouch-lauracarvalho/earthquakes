@@ -9,17 +9,24 @@ import SwiftUI
 import MapKit
 
 struct EarthquakeMapDetail: View {
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
-                                                   span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @ObservedObject var viewModel: EarthquakeMapViewModel
     
     var body: some View {
-        Map(coordinateRegion: $region)
-            .edgesIgnoringSafeArea(.bottom)
-            .navigationTitle("Map Detail")
-            .navigationBarTitleDisplayMode(.inline)
+        Map(coordinateRegion: $viewModel.region, annotationItems: viewModel.annotations) {
+            MapMarker(coordinate: $0.coordinate)
+        }
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationTitle("Map Detail")
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            Task {
+                await viewModel.setUpData()
+            }
+        }
     }
 }
 
 #Preview {
-    EarthquakeMapDetail()
+    let coordinates = Coordinates(latitude: 48.8567, longitude: 2.3508, depth: 0.0)
+    return EarthquakeMapDetail(viewModel: EarthquakeMapViewModel(coordinates: coordinates))
 }
