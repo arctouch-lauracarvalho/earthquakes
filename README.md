@@ -53,3 +53,16 @@ Tapping on an Earthquake row will show a new screen with its location on a map.
 ## Acknowledgements
 
 - The Earthquake data is provided by the [USGS Earthquake API](https://earthquake.usgs.gov/fdsnws/event/1/).
+
+## Improvements to be made
+
+- The design is very simple
+- The Earthquake data URL is a constant value on code
+Its parameters values could be transformed into variables to be more flexible
+- There is currently a UI warning (purple warning) on `EarthquakeMapViewModel` `region` variable
+Might be caused by the default value
+Would be nice to improve this model initialization to silence this warning
+- The messages are hard coded. It could either be added to a separate file as constants or to a Localization file
+Error messages, screen title, alert title etc
+- Could have a retry mechanism when there is no internet
+- Could have a cache mechanism for the fetch data
