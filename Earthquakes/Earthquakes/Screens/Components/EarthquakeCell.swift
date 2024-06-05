@@ -8,29 +8,31 @@
 import SwiftUI
 
 struct EarthquakeCell: View {
-    let data: Earthquake
+    let viewModel: EarthquakeCellViewModel
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 10) {
-                Text(data.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title3)
-                
-                HStack(spacing: 20) {
-                    DataInfo(iconName: Icons.calendar, info: "\(data.time)")
-                    DataInfo(iconName: Icons.depth, info: "\(data.coordinates.depth)")
-                }
-            }
-            .frame(maxWidth: .infinity)
+        VStack(alignment: .leading, spacing: 5) {
+            Text(viewModel.title)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.title3)
             
-            Group {
-                Image(systemName: Icons.waves)
-                Text("\(data.magnitude)")
+            HStack {
+                VStack(alignment: .leading) {
+                    DataInfo(iconName: Icons.calendar, info: viewModel.formatedDate)
+                    DataInfo(iconName: Icons.depth, info: viewModel.depth)
+                }
+                
+                Spacer()
+                
+                Group {
+                    Image(systemName: Icons.waves)
+                    Text(viewModel.magnitude)
+                }
+                .font(.title)
+                .foregroundStyle(viewModel.shouldBeDistinguish ? .red : .black)
             }
-            .font(.title)
-            .foregroundStyle(data.magnitude > 7.5 ? .red : .black)
         }
+        .frame(maxWidth: .infinity)
         .padding()
     }
 }
@@ -44,8 +46,11 @@ private extension EarthquakeCell {
 }
 
 #Preview {
-    Group {
-        EarthquakeCell(data: PreviewHelper.smallEarthquake)
-        EarthquakeCell(data: PreviewHelper.bigEarthquake)
+    let viewModel1 = EarthquakeCellViewModel(earthquake: PreviewHelper.smallEarthquake)
+    let viewModel2 = EarthquakeCellViewModel(earthquake: PreviewHelper.bigEarthquake)
+    
+    return Group {
+        EarthquakeCell(viewModel: viewModel1)
+        EarthquakeCell(viewModel: viewModel2)
     }
 }

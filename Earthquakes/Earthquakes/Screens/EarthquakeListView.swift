@@ -51,7 +51,8 @@ struct EarthquakeListView: View {
         } else {
             List() {
                 ForEach(viewModel.earthquakes, id: \.self) { earthquake in
-                    EarthquakeCell(data: earthquake)
+                    let cellViewModel = EarthquakeCellViewModel(earthquake: earthquake)
+                    EarthquakeCell(viewModel: cellViewModel)
                 }
             }
             .listStyle(.plain)
