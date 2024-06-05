@@ -13,6 +13,7 @@ final class MockSeismicAPIClient: SeismicAPIClient {
     let networkSession: NetworkSession
     
     var mockResponse: [Earthquake]?
+    var shouldThrowError: Bool = false
     
     init(host: URL = URL(string: "https://example.com")!,
          networkSession: NetworkSession = MockNetworkSession(mockData: "{}".data(using: .utf8)!, mockResponse: nil, errorToThrow: nil)) {
@@ -22,6 +23,10 @@ final class MockSeismicAPIClient: SeismicAPIClient {
     
     func fetchEarthquakesData() async throws -> [Earthquakes.Earthquake] {
         try? await Task.sleep(nanoseconds: 1_000_000_000)
+        
+        if shouldThrowError {
+            throw URLError(.unknown)
+        }
         
         if let mock = mockResponse {
             return mock

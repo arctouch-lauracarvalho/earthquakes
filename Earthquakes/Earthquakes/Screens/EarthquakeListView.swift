@@ -17,7 +17,14 @@ struct EarthquakeListView: View {
             if viewModel.isFetchingData {
                 progressView
             }
-        }.onAppear(perform: {
+        }
+        .alert("Oops",
+               isPresented: $viewModel.shouldDisplayAlert,
+               presenting: viewModel.apiError) { _ in
+        } message: { error in
+            Text(error.localizedDescription)
+        }
+        .onAppear(perform: {
             Task {
                 await viewModel.fetchData()
             }
@@ -36,15 +43,21 @@ struct EarthquakeListView: View {
         }
     }
     
+    @ViewBuilder
     private var earthquakeList: some View {
-        List() {
-            ForEach(viewModel.earthquakes, id: \.self) { earthquake in
-                EarthquakeCell(data: earthquake)
+        if !viewModel.isFetchingData && viewModel.earthquakes.isEmpty {
+            Text("No earthquake data")
+                .font(.title)
+        } else {
+            List() {
+                ForEach(viewModel.earthquakes, id: \.self) { earthquake in
+                    EarthquakeCell(data: earthquake)
+                }
             }
+            .listStyle(.plain)
+            .clipped()
+            .edgesIgnoringSafeArea(.bottom)
         }
-        .listStyle(.plain)
-        .clipped()
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

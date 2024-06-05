@@ -12,6 +12,9 @@ final class EarthquakeListViewModel: ObservableObject {
     
     @MainActor @Published private(set) var isFetchingData: Bool = false
     @MainActor @Published private(set) var earthquakes: [Earthquake] = []
+    @MainActor @Published var shouldDisplayAlert: Bool = false
+    
+    private(set) var apiError: SeismicAPIClientError?
     
     init(earthquakeClient: SeismicAPIClient) {
         self.earthquakeClient = earthquakeClient
@@ -30,7 +33,12 @@ final class EarthquakeListViewModel: ObservableObject {
                 self.earthquakes = result
             }
         } catch {
+            apiError = error as? SeismicAPIClientError
             
+            await MainActor.run {
+                self.isFetchingData = false
+                self.shouldDisplayAlert = true
+            }
         }
     }
 }

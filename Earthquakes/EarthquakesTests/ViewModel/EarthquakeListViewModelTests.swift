@@ -65,6 +65,27 @@ final class EarthquakeListViewModelTests: XCTestCase {
         
         XCTAssertEqual(receivedResult, mockEarthquakeList)
     }
+    
+    func testGivenViewModel_WhenFetchingDataAndItFails_ThenSetsShouldShowAlertToTrue() async {
+        await MainActor.run {
+            XCTAssertFalse(sut.shouldDisplayAlert)
+        }
+        
+        mockAPIClient.shouldThrowError = true
+        
+        sut.$shouldDisplayAlert
+            .dropFirst()
+            .sink { result in
+                _ = result
+            }
+            .store(in: &cancellables)
+        
+        await sut.fetchData()
+        
+        await MainActor.run {
+            XCTAssertTrue(sut.shouldDisplayAlert)
+        }
+    }
 }
 
 private extension EarthquakeListViewModelTests {
