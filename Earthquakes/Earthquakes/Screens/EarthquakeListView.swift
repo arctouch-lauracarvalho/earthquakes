@@ -65,7 +65,7 @@ struct EarthquakeListView: View {
                 .edgesIgnoringSafeArea(.bottom)
                 .navigationTitle("Earthquake List")
                 .navigationDestination(for: Earthquake.self) { earthquake in
-                    Text("\(earthquake.title)")
+                    EarthquakeMapDetail()
                 }
             }
         }
